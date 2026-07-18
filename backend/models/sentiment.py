@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 
-from backend.config import SENTIMENT_MODEL
+from config import SENTIMENT_MODEL
 
 tokenizer = AutoTokenizer.from_pretrained(SENTIMENT_MODEL)
 model = AutoModelForSequenceClassification.from_pretrained(SENTIMENT_MODEL)

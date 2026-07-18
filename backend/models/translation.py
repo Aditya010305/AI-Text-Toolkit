@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
 
-from backend.config import TRANSLATION_MODEL
+from config import TRANSLATION_MODEL
 
 tokenizer = AutoTokenizer.from_pretrained(TRANSLATION_MODEL)
 model = AutoModelForSeq2SeqLM.from_pretrained(TRANSLATION_MODEL)

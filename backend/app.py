@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
-from backend.models.sentiment import predict_sentiment
-from backend.models.translation import translate
-from backend.models.summarization import summarize
-from backend.models.question_answering import answer
-from backend.models.zero_shot import classify
+from models.sentiment import predict_sentiment
+from models.translation import translate
+from models.summarization import summarize
+from models.question_answering import answer_question
+from models.zero_shot import classify
 
 
 from fastapi.middleware.cors import CORSMiddleware

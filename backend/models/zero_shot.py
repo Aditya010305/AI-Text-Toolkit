@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 
-from backend.config import ZERO_SHOT_MODEL
+from config import ZERO_SHOT_MODEL
 
 tokenizer = AutoTokenizer.from_pretrained(ZERO_SHOT_MODEL)
 model = AutoModelForSequenceClassification.from_pretrained(ZERO_SHOT_MODEL)
