@@ -1,0 +1,20 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Hugging Face downloaded models
+backend/hf_models/
+
+# Node
+frontend/node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# macOS
+.DS_Store
+
+# Logs
+*.log

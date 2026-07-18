@@ -1,0 +1,5 @@
+SENTIMENT_MODEL = "cardiffnlp/twitter-roberta-base-sentiment-latest"
+TRANSLATION_MODEL = "Helsinki-NLP/opus-mt-en-fr"
+SUMMARIZATION_MODEL = "sshleifer/distilbart-cnn-12-6"
+QA_MODEL = "deepset/roberta-base-squad2"
+ZERO_SHOT_MODEL = "facebook/bart-large-mnli"
