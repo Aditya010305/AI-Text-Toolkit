@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 from models.sentiment import predict_sentiment
 from models.translation import translate
 from models.summarization import summarize
-from models.question_answering import answer_question
+from models.question_answering import answer
 from models.zero_shot import classify
 
 
