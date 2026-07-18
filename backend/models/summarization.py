@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
 
-from config import SUMMARIZATION_MODEL
+from common.config import SUMMARIZATION_MODEL
 
 tokenizer = AutoTokenizer.from_pretrained(SUMMARIZATION_MODEL)
 model = AutoModelForSeq2SeqLM.from_pretrained(SUMMARIZATION_MODEL)

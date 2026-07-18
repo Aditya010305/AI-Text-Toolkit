@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 import torch
 
-from config import QA_MODEL
+from common.config import QA_MODEL
 
 tokenizer = AutoTokenizer.from_pretrained(QA_MODEL)
 model = AutoModelForQuestionAnswering.from_pretrained(QA_MODEL)
