@@ -68,53 +68,109 @@ Features:
 
 ---
 
-# 🛠️ Tech Stack
+# 🏗️ System Architecture
 
-### Frontend
-- React
-- Vite
-- Tailwind CSS
-- Axios
-- React Router
-
-### Backend
-- FastAPI
-- Python
-- Pydantic
-- Uvicorn
-
-### AI / ML
-- Hugging Face Transformers
-- PyTorch
-
-### Deployment
-- Vercel
-- Render
+```text
+                                    ┌──────────────────────────────┐
+                                    │           User               │
+                                    └──────────────┬───────────────┘
+                                                   │
+                                                   ▼
+                                   ┌──────────────────────────────┐
+                                   │     React + Vite Frontend    │
+                                   │        (Tailwind CSS)        │
+                                   └──────────────┬───────────────┘
+                                                  │
+                                         Axios HTTP Requests
+                                                  │
+                                                  ▼
+                          ┌──────────────────────────────────────────┐
+                          │         FastAPI Backend (Render)         │
+                          │                                          │
+                          │  ┌────────────────────────────────────┐  │
+                          │  │           API Endpoints            │  │
+                          │  │                                    │  │
+                          │  │  POST /sentiment                  │  │
+                          │  │  POST /translation                │  │
+                          │  │  POST /summarization              │  │
+                          │  │  POST /question-answering         │  │
+                          │  │  POST /zero-shot                  │  │
+                          │  └────────────────────────────────────┘  │
+                          └──────────────────┬───────────────────────┘
+                                             │
+                              HTTPS Requests │
+                                             ▼
+                ┌────────────────────────────────────────────────────┐
+                │          Hugging Face Inference API                │
+                │                                                    │
+                │  🤖 Sentiment Analysis Model                       │
+                │  🌍 Translation Model                              │
+                │  📝 Summarization Model                            │
+                │  ❓ Question Answering Model                       │
+                │  🏷️ Zero-Shot Classification Model                 │
+                └──────────────────┬─────────────────────────────────┘
+                                   │
+                                   ▼
+                          JSON Prediction Response
+                                   │
+                                   ▼
+                         FastAPI Processes Response
+                                   │
+                                   ▼
+                           React Displays Results
+```
 
 ---
 
-# 📂 Project Structure
+## 🔄 Request Flow
 
+```text
+User
+  │
+  ▼
+React Frontend
+  │
+  ▼
+FastAPI Backend
+  │
+  ▼
+Hugging Face Inference API
+  │
+  ▼
+Model Prediction
+  │
+  ▼
+FastAPI
+  │
+  ▼
+React UI
 ```
-AI-Text-Toolkit
-│
-├── backend
-│   ├── app.py
-│   ├── config.py
-│   ├── models
-│   ├── requirements.txt
-│   └── hf_models (ignored)
-│
-├── frontend
-│   ├── src
-│   ├── components
-│   ├── pages
-│   ├── services
-│   └── utils
-│
-├── README.md
-└── .gitignore
-```
+
+---
+
+## 🛠️ Tech Stack
+
+```text
+Frontend
+├── React
+├── Vite
+├── Tailwind CSS
+└── Axios
+
+Backend
+├── FastAPI
+├── Pydantic
+├── HTTPX
+└── Uvicorn
+
+AI/NLP
+├── Hugging Face Inference API
+├── Transformers
+├── Sentiment Analysis
+├── Translation
+├── Summarization
+├── Question Answering
+└── Zero-Shot Classification
 
 ---
 
