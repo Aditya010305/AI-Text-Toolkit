@@ -1,10 +1,10 @@
 fastapi==0.139.0
 uvicorn==0.51.0
-transformers==5.13.1
-torch==2.13.0
 pydantic==2.13.4
+torch==2.13.0
+transformers==5.13.1
 huggingface_hub==1.23.0
+tokenizers==0.22.2
 sentencepiece==0.2.2
 safetensors==0.8.0
-tokenizers==0.22.2
 numpy==2.5.1

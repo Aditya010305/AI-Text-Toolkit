@@ -4,7 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from common.schemas import QuestionAnswerRequest
 from models.question_answering import answer
 
-app = FastAPI(title="Question Answer API")
+app = FastAPI(
+    title="Question Answer API"
+)
 
 app.add_middleware(
     CORSMiddleware,

@@ -1,251 +1,269 @@
 # 🤖 AI Text Toolkit
 
-A modern AI-powered NLP web application built using **React**, **FastAPI**, and **Hugging Face Transformers**.
+A full-stack AI-powered Natural Language Processing (NLP) application built with **React**, **FastAPI**, **PyTorch**, and **Hugging Face Transformers**.
 
-AI Text Toolkit is a full-stack AI application that brings together multiple Natural Language Processing (NLP) tasks in a single modern web interface powered by Hugging Face Transformer models and FastAPI.
+AI Text Toolkit brings together multiple NLP tasks in a single modern web interface while performing **local transformer inference** using pre-trained Hugging Face models.
 
 ---
 
-## ✨ Features
+# ✨ Features
 
-### 😊 Sentiment Analysis
+## 😊 Sentiment Analysis
+
 Analyze the emotional tone of text.
 
-- Positive, Neutral, Negative classification
-- Confidence score
-- Fast inference using Hugging Face Transformers
+**Features**
 
-**Model:** CardiffNLP RoBERTa Twitter Sentiment
+- Positive / Neutral / Negative prediction
+- Fine-grained sentiment label
+- Confidence score
+
+**Model**
+
+- CardiffNLP Twitter RoBERTa Sentiment
 
 ---
 
-### 🌍 Translation
+## 🌍 Translation
+
 Translate English text into French.
 
-Features:
-- Original Text
-- Translated Text
-- Language Information
+**Features**
 
-**Model:** Helsinki-NLP
+- English → French translation
+- Transformer-based sequence generation
+- Fast local inference
+
+**Model**
+
+- Helsinki-NLP Opus-MT
 
 ---
 
-### 📝 Text Summarization
+## 📝 Text Summarization
+
 Generate concise summaries from long paragraphs.
 
-Features:
-- AI-generated Summary
-- Compression Statistics
-- Reading Time Estimate
-- Word Count
+**Features**
 
-**Model:** DistilBART CNN
+- Abstractive summarization
+- Optimized generation
+- Reading-friendly output
+
+**Model**
+
+- DistilBART CNN
 
 ---
 
-### ❓ Question Answering
-Extract answers from a given context.
+## ❓ Question Answering
 
-Features:
+Extract answers directly from a given context.
+
+**Features**
+
 - Extractive Question Answering
-- Confidence Score
-- Context Statistics
+- Context-based answer extraction
+- Span prediction using Transformers
 
-**Model:** RoBERTa SQuAD2
+**Model**
 
----
-
-### 🏷️ Zero-Shot Classification
-Classify text into custom categories without additional training.
-
-Features:
-- Custom Labels
-- Ranked Predictions
-- Confidence Scores
-
-**Model:** BART MNLI
+- RoBERTa SQuAD2
 
 ---
 
-# 🏗️ System Architecture
+## 🏷️ Zero-Shot Classification
 
-```text
-                                    ┌──────────────────────────────┐
-                                    │           User               │
-                                    └──────────────┬───────────────┘
-                                                   │
-                                                   ▼
-                                   ┌──────────────────────────────┐
-                                   │     React + Vite Frontend    │
-                                   │        (Tailwind CSS)        │
-                                   └──────────────┬───────────────┘
-                                                  │
-                                         Axios HTTP Requests
-                                                  │
-                                                  ▼
-                          ┌──────────────────────────────────────────┐
-                          │         FastAPI Backend (Render)         │
-                          │                                          │
-                          │  ┌────────────────────────────────────┐  │
-                          │  │           API Endpoints            │  │
-                          │  │                                    │  │
-                          │  │  POST /sentiment                  │  │
-                          │  │  POST /translation                │  │
-                          │  │  POST /summarization              │  │
-                          │  │  POST /question-answering         │  │
-                          │  │  POST /zero-shot                  │  │
-                          │  └────────────────────────────────────┘  │
-                          └──────────────────┬───────────────────────┘
-                                             │
-                              HTTPS Requests │
-                                             ▼
-                ┌────────────────────────────────────────────────────┐
-                │          Hugging Face Inference API                │
-                │                                                    │
-                │  🤖 Sentiment Analysis Model                       │
-                │  🌍 Translation Model                              │
-                │  📝 Summarization Model                            │
-                │  ❓ Question Answering Model                       │
-                │  🏷️ Zero-Shot Classification Model                 │
-                └──────────────────┬─────────────────────────────────┘
-                                   │
-                                   ▼
-                          JSON Prediction Response
-                                   │
-                                   ▼
-                         FastAPI Processes Response
-                                   │
-                                   ▼
-                           React Displays Results
-```
+Classify text into custom labels without additional training.
+
+**Features**
+
+- Custom labels
+- Natural language inference
+- No model fine-tuning required
+
+**Model**
+
+- BART MNLI
 
 ---
 
-## 🔄 Request Flow
+# 🛠 Tech Stack
 
-```text
-User
-  │
-  ▼
-React Frontend
-  │
-  ▼
-FastAPI Backend
-  │
-  ▼
-Hugging Face Inference API
-  │
-  ▼
-Model Prediction
-  │
-  ▼
-FastAPI
-  │
-  ▼
-React UI
-```
+## Frontend
 
----
-
-## 🛠️ Tech Stack
-
-```text
-Frontend
-├── React
-├── Vite
-├── Tailwind CSS
-└── Axios
-
-Backend
-├── FastAPI
-├── Pydantic
-├── HTTPX
-└── Uvicorn
-
-AI/NLP
-├── Hugging Face Inference API
-├── Transformers
-├── Sentiment Analysis
-├── Translation
-├── Summarization
-├── Question Answering
-└── Zero-Shot Classification
-
----
-
-# 🚀 Installation
-
-## Clone the repository
-
-```bash
-git clone https://github.com/Aditya010305/AI-Text-Toolkit.git
-```
+- React
+- Vite
+- Tailwind CSS
+- Axios
+- React Router
 
 ## Backend
 
+- FastAPI
+- Python
+- Pydantic
+- Uvicorn
+
+## AI / Machine Learning
+
+- Hugging Face Transformers
+- PyTorch
+
+---
+
+# 🏗 Architecture
+
+```text
+                React Frontend
+                       │
+                 Axios HTTP Requests
+                       │
+                 FastAPI REST API
+                       │
+        ┌──────────────┼──────────────┐
+        │              │              │
+ Sentiment      Translation     Summarization
+        │              │              │
+        ├──────────────┼──────────────┤
+                       │
+             Question Answering
+                       │
+             Zero-Shot Classification
+                       │
+        Hugging Face Transformers
+                       │
+     AutoTokenizer + AutoModel Classes
+                       │
+                    PyTorch
+                       │
+             Local Model Inference
+```
+
+---
+
+# 📂 Project Structure
+
+```text
+AI-Text-Toolkit
+│
+├── backend
+│   ├── app.py
+│   ├── common
+│   │   ├── config.py
+│   │   └── schemas.py
+│   │
+│   ├── models
+│   │   ├── sentiment.py
+│   │   ├── translation.py
+│   │   ├── summarization.py
+│   │   ├── question_answering.py
+│   │   └── zero_shot.py
+│   │
+│   ├── services
+│   │   ├── sentiment/
+│   │   ├── translation/
+│   │   ├── summarization/
+│   │   ├── qa/
+│   │   └── zero_shot/
+│   │
+│   └── requirements.txt
+│
+├── frontend
+│   ├── src
+│   ├── public
+│   └── package.json
+│
+├── screenshots
+│
+├── README.md
+└── .gitignore
+```
+
+---
+
+# 🚀 Getting Started
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/Aditya010305/AI-Text-Toolkit.git
+
+cd AI-Text-Toolkit
+```
+
+---
+
+## 2. Backend Setup
+
+Move to the backend folder.
+
 ```bash
 cd backend
+```
 
+Create a virtual environment.
+
+```bash
 python -m venv .venv
 ```
 
-Activate the virtual environment
+Activate the virtual environment.
 
-**Windows**
+### Windows
 
 ```bash
 .venv\Scripts\activate
 ```
 
-**macOS/Linux**
+### macOS / Linux
 
 ```bash
 source .venv/bin/activate
 ```
 
-Install dependencies
+Install dependencies.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the backend
+Start the FastAPI server.
 
 ```bash
 uvicorn app:app --reload
 ```
 
-> **Note:** During the first startup, the required Hugging Face models will be downloaded automatically. Depending on your internet connection, this may take a few minutes.
+Open the API documentation.
+
+```
+http://127.0.0.1:8000/docs
+```
+
+> **Note**
+>
+> On the first run, Hugging Face Transformers automatically downloads the required pre-trained models and caches them locally. Depending on your internet connection, this may take several minutes. Subsequent runs load the models directly from the local cache.
 
 ---
 
-## Frontend
+## 3. Frontend Setup
+
+Open another terminal.
 
 ```bash
 cd frontend
+```
 
+Install dependencies.
+
+```bash
 npm install
+```
 
+Run the development server.
+
+```bash
 npm run dev
-```
-
----
-
-# ⚙️ Environment Variables
-
-Create a `.env` file inside the frontend folder.
-
-For local development:
-
-```env
-VITE_API_BASE_URL=http://localhost:8000
-```
-
-For deployment:
-
-```env
-VITE_API_BASE_URL=https://your-render-url.onrender.com
 ```
 
 ---
@@ -253,39 +271,53 @@ VITE_API_BASE_URL=https://your-render-url.onrender.com
 # 📡 API Endpoints
 
 | Endpoint | Description |
-|----------|-------------|
+|-----------|-------------|
 | POST `/sentiment` | Sentiment Analysis |
-| POST `/translation` | Translation |
+| POST `/translation` | English to French Translation |
 | POST `/summarization` | Text Summarization |
-| POST `/question-answering` | Question Answering |
-| POST `/zero-shot` | Zero-Shot Classification |
+| POST `/question-answering` | Context-based Question Answering |
+| POST `/zero-shot-classification` | Zero-Shot Text Classification |
 
 ---
 
 # 🧠 Models Used
 
-| Task | Model |
-|------|-------|
-| Sentiment Analysis | CardiffNLP RoBERTa Twitter Sentiment |
-| Translation | Helsinki-NLP Opus-MT |
+| NLP Task | Hugging Face Model |
+|----------|--------------------|
+| Sentiment Analysis | CardiffNLP Twitter RoBERTa Sentiment |
+| Translation | Helsinki-NLP Opus-MT (English → French) |
 | Summarization | DistilBART CNN |
 | Question Answering | RoBERTa SQuAD2 |
-| Zero-Shot Classification | BART MNLI |
+| Zero-Shot Classification | Facebook BART Large MNLI |
 
 ---
 
-# 🎯 Future Improvements
+# 📈 Skills Demonstrated
 
-- Dark Mode
-- Multiple Translation Languages
+- Natural Language Processing (NLP)
+- Transformer-based Deep Learning
+- Hugging Face Transformers
+- PyTorch Model Inference
+- FastAPI REST API Development
+- React Frontend Development
+- Axios API Integration
+- Modular Backend Architecture
+- JSON-based Client–Server Communication
+
+---
+
+# 🔮 Future Improvements
+
+- Multiple translation languages
 - Named Entity Recognition (NER)
 - Text-to-Speech
 - Speech-to-Text
-- Docker Support
+- Batch inference
+- Docker support
 - Authentication
-- Model Selection
-- API Rate Limiting
-- Better Analytics Dashboard
+- Model selection
+- API rate limiting
+- Performance benchmarking
 
 ---
 
@@ -293,15 +325,18 @@ VITE_API_BASE_URL=https://your-render-url.onrender.com
 
 This project helped me gain practical experience with:
 
-- Hugging Face Transformers
-- FastAPI REST API Development
-- React + Vite
-- Axios API Integration
-- Tailwind CSS
-- NLP Workflows
-- Transformer Model Inference
-- Frontend & Backend Deployment
-- Building Production-Style AI Applications
+- Building AI-powered full-stack applications
+- Working with Hugging Face Transformers
+- Local transformer inference using PyTorch
+- Tokenization and text preprocessing
+- Sequence generation models
+- Extractive Question Answering
+- Zero-Shot Classification
+- FastAPI backend development
+- REST API design
+- React + Vite frontend development
+- API integration using Axios
+- Modular software architecture
 
 ---
 
@@ -309,12 +344,14 @@ This project helped me gain practical experience with:
 
 **Aditya Pratap Singh**
 
-- **GitHub:** [Aditya010305](https://github.com/Aditya010305)
-- **LinkedIn:** [Aditya Pratap Singh](https://www.linkedin.com/in/aditya-pratap-singh-39b747327/)
-- **Email:** aditya010305singh@gmail.com
+**GitHub**
 
----
+https://github.com/Aditya010305
 
-## ⭐ Star the Repository
+**LinkedIn**
 
-If you found this project useful, consider giving it a ⭐ on GitHub. It helps support the project and encourages future improvements.
+https://www.linkedin.com/in/aditya-pratap-singh-39b747327/
+
+**Email**
+
+aditya010305singh@gmail.com

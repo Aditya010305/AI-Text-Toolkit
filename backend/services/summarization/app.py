@@ -4,7 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from common.schemas import TextRequest
 from models.summarization import summarize
 
-app = FastAPI(title="Summarization API")
+app = FastAPI(
+    title="Summarization API"
+)
 
 app.add_middleware(
     CORSMiddleware,

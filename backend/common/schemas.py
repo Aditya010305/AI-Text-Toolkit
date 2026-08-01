@@ -26,5 +26,6 @@ class ZeroShotRequest(BaseModel):
     )
 
     labels: list[str] = Field(
-        min_length=1
+        min_length=1,
+        description="Candidate labels for zero-shot classification"
     )

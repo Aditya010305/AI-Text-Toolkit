@@ -9,21 +9,33 @@ model = AutoModelForSequenceClassification.from_pretrained(ZERO_SHOT_MODEL)
 
 entailment_index = model.config.label2id["entailment"]
 
-def classify(text, labels):
-    best_score = float('-inf')
+def classify(text: str, labels: list[str]) -> dict:
+    highest_score = 0.0
     best_label = None
+
     for label in labels:
         hypothesis = f"This text is about {label}."
-        inputs = tokenizer(text, hypothesis, return_tensors = 'pt', truncation=True)
+
+        inputs = tokenizer(
+            text,
+            hypothesis,
+            return_tensors="pt",
+            truncation=True
+        )
+
         with torch.inference_mode():
             outputs = model(**inputs)
-        entailment_score = outputs.logits[0, entailment_index].item()
-        if(entailment_score > best_score):
-            best_score = entailment_score
+
+        probabilities = torch.softmax(outputs.logits, dim=-1)
+        entailment_probability = probabilities[0, entailment_index].item()
+
+        if entailment_probability > highest_score:
+            highest_score = entailment_probability
             best_label = label
-    
+
     return {
-        "label" : best_label
+        "label": best_label,
+        "confidence": round(highest_score * 100, 2)
     }
+            
         
-    

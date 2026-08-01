@@ -4,7 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from common.schemas import ZeroShotRequest
 from models.zero_shot import classify
 
-app = FastAPI(title="Zero Shot API")
+app = FastAPI(
+    title="Zero Shot API"
+)
 
 app.add_middleware(
     CORSMiddleware,
